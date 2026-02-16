@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    let pass = encodeURIComponent("123mongoConnect#")
-    await mongoose.connect(`mongodb+srv://anirudh2506:${pass}@temporary.bgt7du5.mongodb.net/?appName=temporary`);
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("MongoDB Connected");
   } catch (error) {
     console.error(error.message);
